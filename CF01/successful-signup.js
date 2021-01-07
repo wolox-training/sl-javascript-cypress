@@ -3,19 +3,15 @@ const { beforeEach } = require("mocha");
 
 describe ('Successful SignUp', function(){
     beforeEach(function() {
-        cy.visit('https://qa-angular-conduit.vercel.app/register'); 
+      cy.visit('register'); 
     })
-    afterEach(function() {
-        cy.wait(6000);
-    })
-     
+         
     it ('Sucessful Sign Up',function(){
-        cy.get(':nth-child(1) > .form-control').type('TestUser2002');
-        cy.get(':nth-child(2) > .form-control').type('santiago.lopez+234@wolox.com.ar');
-        cy.get(':nth-child(3) > .form-control').type('Wolox1189!');
-        cy.get('.btn').click();  
-        cy.wait(6000);
-        cy.get(':nth-child(4) > .nav-link').should('contain', 'testuser2002');
-        
+      cy.get('[formcontrolname=username]').type('TestUser20033');
+      cy.get('[formcontrolname=email]').type('santiago.lopez+23133@wolox.com.ar');
+      cy.get('[formcontrolname=password]').type('Wolox1189!');
+      cy.get('.btn').click();  
+      cy.get(':nth-child(4) > .nav-link', { timeout: 6000 }).should('contain', 'testuser20033');
     })
+
 })
