@@ -1,5 +1,5 @@
-const { expect } = require("chai");
-const { beforeEach } = require("mocha");
+const { expect } = require('chai');
+const { beforeEach } = require('mocha');
 
 describe ('Password Errors', function(){
   beforeEach(function() {

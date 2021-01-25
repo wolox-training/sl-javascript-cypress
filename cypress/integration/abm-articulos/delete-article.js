@@ -1,12 +1,8 @@
-const { beforeEach } = require("mocha");
+const { beforeEach } = require('mocha');
 
 describe ('Delete Article', function() {
   before('Login', function() {
-    cy.visit('login');
-    cy.get('[formcontrolname=email]').type('santiago.lopez+1@wolox.com.ar');
-    cy.get('[formcontrolname=password]').type('Wolox1189!');
-    cy.get('.btn').click();
-    cy.get(':nth-child(4) > .nav-link', { timeout: 2000 }).should('contain', 'smlopez');
+   cy.Login()
   })
 
   it('New Article', function() {
@@ -20,14 +16,13 @@ describe ('Delete Article', function() {
 
   it('Delete Article', function () {
     cy.contains('Home').click();
-    cy.contains('Global Feed').click();
-    cy.wait(3000);
+    cy.contains('Global Feed', { timeout: 3000 }).click();
     cy.get('.container > app-article-meta > .article-meta > :nth-child(3) > .btn-outline-danger').click();
   })
 
   it('Check Data', function () {
-    cy.contains('Global Feed').click();
-    cy.wait(2000);
+    cy.contains('Home').click();
+    cy.contains('Global Feed', { timeout: 3000 }).click();
     cy.get(':nth-child(1) > .article-preview').should('not.contain', 'Artículo para borrar');
     cy.get(':nth-child(1) > .article-preview').should('not.contain', 'Descripción para borrar');
     cy.get(':nth-child(4) > .nav-link').click();

@@ -1,11 +1,11 @@
-const { beforeEach } = require("mocha");
+const { beforeEach } = require('mocha');
 
-describe ('Successful Login', function(){
+describe ('Successful Login', function() {
   beforeEach(function() {
-    cy.visit('https://qa-angular-conduit.vercel.app/login'); 
+    cy.visit('login'); 
   })
            
-  it('Invalid Email and Password',function(){
+  it('Invalid Email and Password', function() {
     cy.get('[formcontrolname=email]').type('santiago.lopez+1@wolox.com.ar');
     cy.get('[formcontrolname=password]').type('Wolox1189!');
     cy.get('.btn').click();

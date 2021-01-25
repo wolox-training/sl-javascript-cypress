@@ -1,5 +1,5 @@
-const { expect } = require("chai");
-const { beforeEach } = require("mocha");
+const { expect } = require('chai');
+const { beforeEach } = require('mocha');
 
 describe ('Email Errors', function() {
   beforeEach(function() {
@@ -23,4 +23,3 @@ describe ('Email Errors', function() {
   })  
 
 })
-    

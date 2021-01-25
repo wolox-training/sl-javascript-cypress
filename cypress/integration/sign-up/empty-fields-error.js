@@ -1,4 +1,4 @@
-const { beforeEach } = require("mocha");
+const { beforeEach } = require('mocha');
 
 describe ('Empty Fields', function() {
   beforeEach(function() {
@@ -23,9 +23,9 @@ describe ('Empty Fields', function() {
     cy.get('.btn').then((btn) => {
       if (cy.get('.btn').should('not.have.attr','disabled')) {
         cy.get('.btn').click()
-        } else {
+      } else {
         cy.get(':nth-child(1) > .nav-link').click()
-        }
+      }
     });
     cy.get('.error-messages > :nth-child(1)', { timeout: 6000 }).should('contain', "username can't be blank"); 
   })

@@ -1,25 +1,21 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add("login", (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add("drag", { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add("dismiss", { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+Cypress.Commands.add("Login", () => { 
+    cy.visit('login');
+    cy.get('[formcontrolname=email]').type('santiago.lopez+3@wolox.com.ar');
+    cy.get('[formcontrolname=password]').type('Wolox1189!');
+    cy.get('.btn').click();
+    cy.get(':nth-child(4) > .nav-link', { timeout: 2000 }).should('contain', 'smlopezqa');
+})
+
+Cypress.Commands.add("Logout", () => { 
+    cy.contains('Settings').click();
+    cy.get('.btn-outline-danger').click();
+})
+
+
+Cypress.Commands.add("LoginFav", () => { 
+    cy.visit('login');
+    cy.get('[formcontrolname=email]').type('user@test.com');
+    cy.get('[formcontrolname=password]').type('test');
+    cy.get('.btn').click();
+    cy.get(':nth-child(4) > .nav-link', { timeout: 2000 }).should('contain', 'testuserqa');
+})
