@@ -1,4 +1,8 @@
 {
     "baseUrl": "https://qa-angular-conduit.vercel.app/",
-    "userAgent": "testing"
+    "userAgent": "testing",
+    "env": {
+      "usermailQA":"santiago.lopez+3@wolox.com.ar",
+      "passwordQA":"Wolox1189!"
+    }
 }
